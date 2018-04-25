@@ -7,7 +7,7 @@ services:
 
 before_script:
   - psql -c 'create database codesling;' -U postgres
-  - psql -c “create user root with superuser password ‘’;” -U postgres
+  - psql -c "create user root with superuser password '';" -U postgres
   - yarn buildEnv
   - yarn setup:rest-server
   - yarn setup:socket-server
