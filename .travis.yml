@@ -3,7 +3,7 @@ node_js:
   - "node"
 
 before_script:
-  - yarn jest
+  - yarn add jest
 script: jest
 
 # cache:
