@@ -15,9 +15,9 @@ before_script:
   - yarn setup:socket-server
   - yarn setup:services/coderunner-service
   - yarn db:setup:rest-server
+  - yarn start 
 
 script:
-  - yarn start 
   - yarn test:socket-server
 
 
