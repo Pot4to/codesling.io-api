@@ -2,7 +2,7 @@ language: node_js
 node_js:
   - "node"
 
-# script: test
+script: test
 
 # cache:
 #   directories:
