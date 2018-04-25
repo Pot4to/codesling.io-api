@@ -22,7 +22,7 @@ import {
  *
  */
 const clientReady = ({ io, client, room }, payload) => {
-  success('client ready heard');
+  success('client ready heard', io, client, room);
   serverInitialState({ io, client, room }, payload);
 };
 
