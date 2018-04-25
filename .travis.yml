@@ -3,12 +3,12 @@ node_js:
   - "node"
 
 before_script:
+  - psql -c 'create database codesling;' -U postgres
   - yarn buildEnv
   - yarn setup:rest-server
   - yarn setup:socket-server
   - yarn setup:services/coderunner-service
   - yarn db:setup:rest-server
-  - psql -c 'create database codesling' -U postgres
 
 script: yarn test:socket-server
 
