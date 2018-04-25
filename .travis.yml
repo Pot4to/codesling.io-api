@@ -17,4 +17,3 @@ before_script:
   - yarn db:setup:rest-server
 
 script: yarn test:socket-server
-
