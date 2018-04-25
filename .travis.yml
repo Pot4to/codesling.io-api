@@ -8,5 +8,9 @@ before_script:
   - yarn setup:socket-server
   - yarn setup:services/coderunner-service
   - yarn db:setup:rest-server
+  - psql -c 'create database codesling' -U postgres
 
 script: yarn test:socket-server
+
+services:
+  - postgresql
