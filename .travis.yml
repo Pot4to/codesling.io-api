@@ -6,7 +6,12 @@ before_script:
   - yarn add jest
 script: jest
 
-# cache:
-#   directories:
-#     - "node_modules"
+env:
+  - NODE_ENV=DEVELOPMENT
+  - DEBUG=TRUE
+  - HOST=http://localhost
+  - PORT=4155
+  - REST_SERVER_URL=http://localhost:4990
+  - CODERUNNER_SERVICE_URL=http://localhost:4000
+  - TOKEN_SECRET=codeslinger
 
