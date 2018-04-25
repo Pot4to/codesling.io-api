@@ -3,15 +3,10 @@ node_js:
   - "node"
 
 before_script:
-  - yarn add jest
-script: jest
+  - yarn buildEnv
+  - yarn setup:rest-server
+  - yarn setup:socket-server
+  - yarn setup:services/coderunner-service
+  - yarn db:setup:rest-server
 
-env:
-  - NODE_ENV=DEVELOPMENT
-  - DEBUG=TRUE
-  - HOST=http://localhost
-  - PORT=4155
-  - REST_SERVER_URL=http://localhost:4990
-  - CODERUNNER_SERVICE_URL=http://localhost:4000
-  - TOKEN_SECRET=codeslinger
-
+script: yarn test:socket-server
