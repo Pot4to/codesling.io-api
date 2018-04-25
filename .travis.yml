@@ -7,7 +7,7 @@ services:
 
 services:
   - postgresql
-  
+
 before_script:
   - psql -c 'create database codesling;' -U postgres
   - yarn buildEnv
@@ -17,4 +17,3 @@ before_script:
   - yarn db:setup:rest-server
 
 script: yarn test:socket-server
-
