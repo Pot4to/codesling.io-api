@@ -5,6 +5,9 @@ node_js:
 services:
   - postgresql
 
+services:
+  - postgresql
+  
 before_script:
   - psql -c 'create database codesling;' -U postgres
   - yarn buildEnv
@@ -15,5 +18,3 @@ before_script:
 
 script: yarn test:socket-server
 
-services:
-  - postgresql
