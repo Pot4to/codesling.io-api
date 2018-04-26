@@ -11,6 +11,29 @@ hello();
  *  Rooms store
  *
  */
+
+/*
+
+Rooms = {
+
+  roomId: 
+          {
+            id: roomId,
+            playerOne.text: startingText,
+            playerTwo.text: startingText
+          }
+
+  roomId: 
+          {
+            id: roomId, 
+            playerOne.text: startingText, 
+            playerTwo.text: startingText
+          }
+
+}
+
+*/
+
 export default class Rooms {
   constructor(io) {
     this.io = io;

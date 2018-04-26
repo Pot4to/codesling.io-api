@@ -42,3 +42,24 @@ start:rest-server # starts rest-server
 start:socket-server # starts rest-server
 start:services/coderunner-service # starts rest-server
 ```
+
+### REST Server Enpoints
+
+```bash
+
+POST: /api/testCases
+    content: #Test content
+    challenge_id: #id of challenge 
+    
+GET: /api/testCases/`${challenge_id}`
+    #returns the test cases associated with a given challenge ID
+
+POST: /api/addPlayer #increments player count in a room in the db
+    challenge: #id of challenge
+
+PUT: /api/deletePlayer #decrements player count in a room in the db
+    challenge: #id of challenge
+
+
+
+```
