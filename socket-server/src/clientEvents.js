@@ -21,8 +21,8 @@ import {
  *  @url {https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map}
  *
  */
-const clientReady = ({ io, client, room }, payload) => {
-  success('client ready heard', io, client, room);
+const clientReady = ({ io, client, room, player }, payload) => {
+  success('client ready heard', io, client, room, player);
   serverInitialState({ io, client, room }, payload);
 };
 
@@ -52,6 +52,7 @@ const clientRun = async ({ io, room }, payload) => {
 
   try {
     const { data } = await axios.post(`${url}/submit-code`, { code: text });
+    const textCase = await axios.get(`${}/testCases`, {  })
     const stdout = data;
     serverRun({ io, room }, { stdout, player });
   } catch (e) {
