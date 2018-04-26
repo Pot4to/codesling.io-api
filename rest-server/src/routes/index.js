@@ -9,6 +9,7 @@ import testCasesRouter from '../components/testCases/testCasesRouter';
 import historyRouter from '../components/histories/historyRouter';
 import msgRouter from '../components/msgs/msgRouter';
 import sabotageRouter from '../components/sabotages/sabotageRouter';
+import addPlayerRouter from '../components/addPlayer/addPlayerRouter';
 
 const router = express.Router();
 
@@ -21,5 +22,6 @@ router.use('/testCases', testCasesRouter);
 router.use('/history', historyRouter);
 router.use('/messages', msgRouter);
 router.use('/sabotages', sabotageRouter);
+router.use('/addPlayer', addPlayerRouter);
 
 export default router;
