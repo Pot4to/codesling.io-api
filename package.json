@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest --spec",
+    "test": "yarn start",
+    "test:socket-server": "cd socket-server && yarn test",
     "start:rest-server": "cd rest-server && yarn start",
     "start:socket-server": "cd socket-server && yarn start",
     "start:services/coderunner-service": "cd services/coderunner-service && yarn start",

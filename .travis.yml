@@ -1,9 +1,20 @@
 language: node_js
 node_js:
-  - "node"
+  - "9"
 
-script: jest
+services:
+  - postgresql
 
-cache:
-  directories:
-    - "node_modules"
+before_script:
+  - psql -c 'create database codesling;' -U postgres
+  - psql -c "create user root with superuser password '';" -U postgres
+  - yarn buildEnv
+  - yarn setup:rest-server
+  - yarn setup:socket-server
+  - yarn setup:services/coderunner-service
+  - yarn db:setup:rest-server
+
+script:
+  - yarn start &
+  - sleep 10
+  - yarn test:socket-server
