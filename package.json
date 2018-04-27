@@ -9,7 +9,7 @@
     "start:rest-server": "cd rest-server && yarn start",
     "start:socket-server": "cd socket-server && yarn start",
     "start:services/coderunner-service": "cd services/coderunner-service && yarn start",
-    "start": "npm-run-all -p start:rest-server start:socket-server start:services/coderunner-service",
+    "start": "npm-run-all -p buildEnv setup:rest-server setup:socket-server setup:services/coderunner-service db:setup:rest-server start:rest-server start:socket-server start:services/coderunner-service",
     "setup:rest-server": "cd rest-server && yarn",
     "setup:socket-server": "cd socket-server && yarn",
     "setup:services/coderunner-service": "cd services/coderunner-service && yarn",
