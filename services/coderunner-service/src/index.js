@@ -13,8 +13,11 @@ app.use(cors());
 app.use(bodyParser.json());
 
 app.post('/submit-code', (req, res) => {
-  const { code } = req.body;
-  s.run(code, (output) => {
+  const { code, test } = req.body;
+  //add tests to the bottom of the user's code
+  let joinedCode = code.concat(test);
+  //run the user's code along with the tests
+  s.run(joinedCode, (output) => {
     res.status(200).send(output);
   });
 });

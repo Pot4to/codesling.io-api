@@ -1,10 +1,10 @@
-const startingText =
-`function hello() {
-  console.log('hello!');
-}
+// const startingText =
+// `function hello() {
+//   console.log('hello!');
+// }
 
-hello();
-`;
+// hello();
+// `;
 
 /**
  *
@@ -45,8 +45,6 @@ export default class Rooms {
     if (!room) {
       room = new Map();
       room.set('id', roomId);
-      room.set('playerOne.text', startingText);
-      room.set('playerTwo.text', startingText);
       this.store.set(roomId, room);
     }
     return room;
