@@ -14,6 +14,7 @@ app.use(bodyParser.json());
 
 app.post('/submit-code', (req, res) => {
   const { code, test } = req.body;
+  console.log(req.body);
   //add tests to the bottom of the user's code
   let joinedCode = code.concat(test);
   //run the user's code along with the tests

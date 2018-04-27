@@ -1,5 +1,33 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Client interactions Should add a new user to a room and receive the same text 1`] = `
+"function undefined(input) {
+  //YOUR_CODE_HERE
+}
+"
+`;
+
+exports[`Client interactions Should add a new user to a room and receive the same text 2`] = `
+"function undefined(input) {
+  //YOUR_CODE_HERE
+}
+"
+`;
+
+exports[`Client interactions Should add a new user to a room and receive the same text 3`] = `
+"function undefined(input) {
+  //YOUR_CODE_HERE
+}
+"
+`;
+
+exports[`Client interactions Should add a new user to a room and receive the same text 4`] = `
+"function undefined(input) {
+  //YOUR_CODE_HERE
+}
+"
+`;
+
 exports[`Client interactions Should be able to hear emissions from other clients 1`] = `"console.log(\\"Hello, World!\\")"`;
 
 exports[`Client interactions Should be able to run code and have both clients receive stdout 1`] = `
