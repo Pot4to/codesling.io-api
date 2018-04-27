@@ -104,7 +104,6 @@ export const createChallengeTable = async () => {
         id SERIAL,
         title VARCHAR(255) NOT NULL,
         content VARCHAR(255) NOT NULL,
-        numPlayers INT NOT NULL,
         difficulty INT NOT NULL,
         rating INT,
         CONSTRAINT challenges_pk 
