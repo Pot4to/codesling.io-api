@@ -42,28 +42,28 @@ describe('Client interactions', () => {
     done();
   });
 
-  // Expects people to be able to connect to the socket-server
-  test('Should add a new user to a room and receive the same text', async (done) => {
-    done = after(2, done);
-    expect.assertions(6);
-    const handler = (payload) => {
-      try {
-        expect(payload.playerOneText).toMatchSnapshot();
-        expect(payload.playerTwoText).toMatchSnapshot();
-        // make sure real test above does not throw
-        expect(true).toBe(true);
-      } catch (e) {
-        console.log(e.toString());
-      }
-      done();
-    };
+  // // Expects people to be able to connect to the socket-server
+  // test('Should add a new user to a room and receive the same text', async (done) => {
+  //   done = after(2, done);
+  //   expect.assertions(6);
+  //   const handler = (payload) => {
+  //     try {
+  //       expect(payload.playerOneText).toMatchSnapshot();
+  //       expect(payload.playerTwoText).toMatchSnapshot();
+  //       // make sure real test above does not throw
+  //       expect(true).toBe(true);
+  //     } catch (e) {
+  //       console.log(e.toString());
+  //     }
+  //     done();
+  //   };
 
-    client1.on('server.initialState', handler);
-    client2.on('server.initialState', handler);
+  //   client1.on('server.initialState', handler);
+  //   client2.on('server.initialState', handler);
 
-    client1.emit('client.ready', { challenge: '' });
-    client2.emit('client.ready', { challenge: '' });
-  });
+  //   client1.emit('client.ready', { challenge: '' });
+  //   client2.emit('client.ready', { challenge: '' });
+  // });
 
   // Expects clients to be able to connect with one another
   test('Should be able to hear emissions from other clients', (done) => {
