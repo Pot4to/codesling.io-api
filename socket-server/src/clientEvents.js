@@ -46,9 +46,10 @@ const clientDisconnect = ({ io, room }) => {
 };
 
 const clientRun = async ({ io, room }, payload) => {
-  success('running code from client. room.get("text") = ', room.get('text'));
   // Get text from the player that hit run
   const { text, player } = payload;
+  let playerRoom = player === 1 ? 'One' : 'Two'; 
+  success('running code from client. room.get("text") = ', room.get(`player${playerRoom}.text`)));
   //URLs for the servers
   const url = process.env.CODERUNNER_SERVICE_URL;
   const restUrl = process.env.REST_SERVER_URL;
