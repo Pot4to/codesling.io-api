@@ -1,16 +1,39 @@
-const startingText =
-`function hello() {
-  console.log('hello!');
-}
+// const startingText =
+// `function hello() {
+//   console.log('hello!');
+// }
 
-hello();
-`;
+// hello();
+// `;
 
 /**
  *
  *  Rooms store
  *
  */
+
+/*
+
+Rooms = {
+
+  roomId: 
+          {
+            id: roomId,
+            playerOne.text: startingText,
+            playerTwo.text: startingText
+          }
+
+  roomId: 
+          {
+            id: roomId, 
+            playerOne.text: startingText, 
+            playerTwo.text: startingText
+          }
+
+}
+
+*/
+
 export default class Rooms {
   constructor(io) {
     this.io = io;
@@ -22,8 +45,6 @@ export default class Rooms {
     if (!room) {
       room = new Map();
       room.set('id', roomId);
-      room.set('playerOne.text', startingText);
-      room.set('playerTwo.text', startingText);
       this.store.set(roomId, room);
     }
     return room;

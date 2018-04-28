@@ -1,38 +1,30 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Client interactions Should add a new user to a room and receive the same text 1`] = `
-"function hello() {
-  console.log('hello!');
+"function undefined(input) {
+  //YOUR_CODE_HERE
 }
-
-hello();
 "
 `;
 
 exports[`Client interactions Should add a new user to a room and receive the same text 2`] = `
-"function hello() {
-  console.log('hello!');
+"function undefined(input) {
+  //YOUR_CODE_HERE
 }
-
-hello();
 "
 `;
 
 exports[`Client interactions Should add a new user to a room and receive the same text 3`] = `
-"function hello() {
-  console.log('hello!');
+"function undefined(input) {
+  //YOUR_CODE_HERE
 }
-
-hello();
 "
 `;
 
 exports[`Client interactions Should add a new user to a room and receive the same text 4`] = `
-"function hello() {
-  console.log('hello!');
+"function undefined(input) {
+  //YOUR_CODE_HERE
 }
-
-hello();
 "
 `;
 

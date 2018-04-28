@@ -21,8 +21,8 @@ import {
  *  @url {https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map}
  *
  */
-const clientReady = ({ io, client, room }, payload) => {
-  success('client ready heard');
+const clientReady = ({ io, client, room, player }, payload) => {
+  success('client ready heard', io, client, room, player);
   serverInitialState({ io, client, room }, payload);
 };
 
@@ -46,16 +46,42 @@ const clientDisconnect = ({ io, room }) => {
 };
 
 const clientRun = async ({ io, room }, payload) => {
-  success('running code from client. room.get("text") = ', room.get('text'));
+  // Get text from the player that hit run
   const { text, player } = payload;
+  let playerRoom = player === 1 ? 'One' : 'Two'; 
+  success(`running code from client. room.get("player${playerRoom}.text") = `, room.get(`player${playerRoom}.text`));
+  //URLs for the servers
   const url = process.env.CODERUNNER_SERVICE_URL;
-
-  try {
-    const { data } = await axios.post(`${url}/submit-code`, { code: text });
-    const stdout = data;
-    serverRun({ io, room }, { stdout, player });
-  } catch (e) {
-    success('error posting to coderunner service from socket server. e = ', e);
+  const restUrl = process.env.REST_SERVER_URL;
+  //First check that the room has no winner
+  if (!room.get('winner')) {
+        try {
+          const { test } = room.get('challenge');
+          const { data } = await axios.post(`${url}/submit-code`, { code: text, test: test });
+          const stdout = data;
+          // get rid of non-solved tests
+          const reducer = data.console.filter(item => {
+            return item !== 'solved'
+          });
+          // if there are no failing tests,
+          if (data.console.filter(item => item !== 'solved').length === 0) {
+            //update room to have a winner, 
+            room.set('winner', player);
+            //emit the winner and data to the clients
+            stdout.winner = player;
+            stdout.console = `WINNER IS PLAYER ${player}`;
+            serverRun({ io, room }, { stdout, player });
+          } else {
+            // emit text to client - no winner
+            serverRun({ io, room }, { stdout, player });
+          }
+        } catch (e) {
+          success('error posting to coderunner service from socket server. e = ', e);
+        }
+  } else {
+    //winner is present in room: 
+    let stdout = {console: `winner has already been determined, the winner was player ${room.get('winner')}`}
+    serverRun({ io, room }, { stdout, player })
   }
 };
 
