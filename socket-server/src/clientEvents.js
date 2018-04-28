@@ -69,6 +69,7 @@ const clientRun = async ({ io, room }, payload) => {
             room.set('winner', player);
             //emit the winner and data to the clients
             stdout.winner = player;
+            stdout.console = `WINNER IS PLAYER ${player}`;
             serverRun({ io, room }, { stdout, player });
           } else {
             // emit text to client - no winner
